@@ -1,5 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
 import {useSelector} from 'react-redux';
 
 function UserPage() {
@@ -8,6 +9,13 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
+
+    {/* Add Pizza to Search Page*/}
+      <AddPizzaButton className="btn" />
+      
+    {/* View Pizza List to Pizza List*/}
+    {/* Hall of Fame */}
+
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
     </div>
