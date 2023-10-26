@@ -105,7 +105,7 @@ function App() {
 
           {/* Route from Add Pizza button to Search Page */}
           <Route exact path="/SearchPizza" component={SearchPizza} />
-          
+
           {/* Route from Pizza List button to Pizza List Page */}
           <Route exact path="/PizzaList" component={PizzaList} />
 
@@ -116,7 +116,6 @@ function App() {
           <Route>
             <h1>404</h1>
           </Route>
-
         </Switch>
         <Footer />
       </div>
