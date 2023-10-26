@@ -1,8 +1,15 @@
 import React from 'react';
+
 import LogOutButton from '../LogOutButton/LogOutButton';
-import AddPizzaButton from '../AddPizzaButton/AddPizzaButton';
+import AddPizza from '../AddPizza/AddPizza';
 import ViewPizzaList from '../ViewPizzaList/ViewPizzaList';
 import HallOfFame from '../HallOfFame/HallOfFame';
+import SearchPizza from '../SearchPizza/SearchPizza';
+import PizzaList from '../PizzaList/PizzaList';
+import HallOfFameList from '../HallOfFameList/HallOfFameList';
+
+import { Link } from 'react-router-dom';
+
 import {useSelector} from 'react-redux';
 
 function UserPage() {
@@ -13,13 +20,19 @@ function UserPage() {
       <h2>Welcome, {user.username}!</h2>
 
     {/* Add Pizza route to Search Page*/}
-      <AddPizzaButton className="btn" />
+    <Link to="/SearchPizza">
+      <button className="btn">Add Pizza</button>
+    </Link>
       
     {/* View Pizza List route to Pizza List*/}
-      <ViewPizzaList className="btn" />
+    <Link to="/PizzaList">
+      <button className="btn">Pizza List</button>
+    </Link>
 
     {/* Hall of Fame */}
-      <HallOfFame className="btn" />
+    <Link to="/HallOfFameList">
+      <button className="btn">Hall of Fame List</button>
+    </Link>
 
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />
