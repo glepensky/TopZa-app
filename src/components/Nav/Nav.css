@@ -4,12 +4,14 @@
   justify-content: space-between;
   align-items: center;
 
+  height: 60px; /* Adjust this value as needed */
   margin: 0 0 30px;
+
   /* Checkered background */
-  background: linear-gradient(45deg, #E1A500 25%, transparent 25%),
-              linear-gradient(-45deg, #E1A500 25%, transparent 25%),
-              linear-gradient(45deg, transparent 75%, #E1A500 75%),
-              linear-gradient(-45deg, transparent 75%, #E1A500 75%);
+  background: linear-gradient(45deg, #e1a500 25%, transparent 25%),
+    linear-gradient(-45deg, #e1a500 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e1a500 75%),
+    linear-gradient(-45deg, transparent 75%, #e1a500 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 
@@ -45,5 +47,5 @@
 }
 
 .navLink:hover {
-  background-color: #4DA167;
+  background-color: #4da167;
 }

@@ -2,13 +2,14 @@ html,
 body,
 #react-root {
   height: 100%;
+  text-align: center;
 }
 
 
 
 body {
   font-family: 'Cooper Black', monospace;
-  margin: 0px;
+  margin: 00px;
   color: #494450;
   background-color: #F8F3EB;
   
@@ -36,7 +37,7 @@ Button
   padding: 10px 20px;
   border-color: #4DA167;
   border-width: 1px 1px 3px;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: #D93523;
   color: #f8f8f8;
   font-size: 1.1rem;
