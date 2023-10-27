@@ -23,7 +23,7 @@ function LandingPage() {
           Introducing TopZa: Your ultimate companion for pizza enthusiasts! 
             With TopZa, you can easily discover, rate, and keep track of all the incredible pizza places you've tried. 
             From the perfect New York slice to mouthwatering deep-dish delights, our app lets you share your pizza adventures, find new favorites, and never forget a memorable slice. 
-            oin our community of pizza lovers and embark on a delicious journey with TopZa today!
+            Join our community of pizza lovers and embark on a delicious journey with TopZa today!
           </p>
 
         </div>
