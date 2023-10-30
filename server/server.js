@@ -37,7 +37,7 @@ const API_KEY = process.env.YELP_API_KEY;
 
 app.get('/search', (req, res) => {
   const location = req.query.location;
-
+  // term=pizza instructs Yelp API to filter results for businesses that match
   axios.get(`${API_ENDPOINT}?term=pizza&location=${location}`, {
     headers: {
       "Authorization": `Bearer ${API_KEY}`
