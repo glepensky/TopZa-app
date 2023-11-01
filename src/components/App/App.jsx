@@ -24,6 +24,7 @@ import AddPizza from "../AddPizza/AddPizza";
 import SearchPizza from "../SearchPizza/SearchPizza";
 import PizzaList from "../PizzaList/PizzaList";
 import HallOfFameList from "../HallOfFameList/HallOfFameList";
+import SelectedResult from "../SelectedResult/SelectedResult";
 
 import "./App.css";
 
@@ -105,6 +106,9 @@ function App() {
 
           {/* Route from Add Pizza button to Search Page */}
           <Route exact path="/SearchPizza" component={SearchPizza} />
+
+          {/* Updated Route for Selected Result with parameter */}
+          <Route exact path="/SelectedResult/:id" component={SelectedResult} />
 
           {/* Route from Pizza List button to Pizza List Page */}
           <Route exact path="/PizzaList" component={PizzaList} />
