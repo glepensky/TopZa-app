@@ -6,20 +6,29 @@ function SelectedResult() {
 
   useEffect(() => {
     try {
-      const resultData = JSON.parse(localStorage.getItem('selectedResult'));
-      // showed Marc - believes this is where it's going wrong
-      // line 9 - what am I doing? - and asynch?
-      let thing = {name:'fixing' };
-      console.log(resultData);
-      setResult(thing);
-      console.log(resultData);
-      // Optionally, clear the data from local storage after retrieving it
-      localStorage.removeItem('selectedResult');
+      // Retrieve the data from local storage
+      const storedData = localStorage.getItem('selectedResult');
+      if (storedData) {
+        // Parse the data from JSON string to object
+        const resultData = JSON.parse(storedData);
+  
+        // Set the result data to your state
+        setResult(resultData);
+  
+        // Optionally, clear the data from local storage after retrieving it
+        localStorage.removeItem('selectedResult');
+      } else {
+        // Handle the case where there is no data in local storage
+        console.log('No data found in local storage.');
+        // Set a default state or handle this scenario as needed
+      }
     } catch (err) {
+      // Handle errors if data retrieval or parsing fails
       setError('Failed to load data');
       console.error('Error parsing data from local storage:', err);
     }
   }, []);
+  
 
   if (error) {
     return <div>Error: {error}</div>;
