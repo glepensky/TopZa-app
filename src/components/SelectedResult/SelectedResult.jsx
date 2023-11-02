@@ -1,13 +1,32 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 function SelectedResult() {
-  const location = useLocation();
-  console.log('Location state:', location.state);
-  const result = location.state ? location.state.result : null; // Accessing the result passed in the state
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    try {
+      const resultData = JSON.parse(localStorage.getItem('selectedResult'));
+      // showed Marc - believes this is where it's going wrong
+      // line 9 - what am I doing? - and asynch?
+      let thing = {name:'fixing' };
+      console.log(resultData);
+      setResult(thing);
+      console.log(resultData);
+      // Optionally, clear the data from local storage after retrieving it
+      localStorage.removeItem('selectedResult');
+    } catch (err) {
+      setError('Failed to load data');
+      console.error('Error parsing data from local storage:', err);
+    }
+  }, []);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   if (!result) {
-    return <div>Loading...</div>; // You can handle the loading or error state here
+    return <div>Loading...</div>;
   }
 
   return (
@@ -19,4 +38,6 @@ function SelectedResult() {
 }
 
 export default SelectedResult;
+
+
 

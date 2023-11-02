@@ -105,10 +105,10 @@ function App() {
           </Route>
 
           {/* Route from Add Pizza button to Search Page */}
-          <Route exact path="/SearchPizza" component={SearchPizza} />
+          <Route exact path="/searchpizza" component={SearchPizza} />
 
           {/* Updated Route for Selected Result with parameter */}
-          <Route exact path="/SelectedResult/:id" component={SelectedResult} />
+          <Route exact path="/selectedresult/:id" component={SelectedResult} />
 
           {/* Route from Pizza List button to Pizza List Page */}
           <Route exact path="/PizzaList" component={PizzaList} />

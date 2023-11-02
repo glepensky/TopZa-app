@@ -23,11 +23,11 @@ function SearchPizza() {
   };
 
   const handleResultClick = (result) => {
-    // Navigate to the SelectedResult page with the clicked result data
-    console.log("Navigating with result:", result);
-    history.push("/selectedresult", { result });
+    // Save the clicked result data to local storage
+    localStorage.setItem('selectedResult', JSON.stringify(result));
 
-    history.push(`/SelectedResult/${result.id}`, { result });
+    // Navigate to the SelectedResult page with the clicked result's ID in the URL
+    history.push(`/selectedresult/${result.id}`);
   };
 
   return (
