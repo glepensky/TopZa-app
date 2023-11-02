@@ -23,8 +23,15 @@ function SearchPizza() {
   };
 
   const handleResultClick = (result) => {
+    // Ensure the location is an object with address1 property
+    // Adjust according to your API response structure
+    const resultToStore = {
+      ...result,
+      location: result.location.address1 || "No address provided", // Add a default value if address isn't available
+    };
+
     // Save the clicked result data to local storage
-    localStorage.setItem('selectedResult', JSON.stringify(result));
+    localStorage.setItem("selectedResult", JSON.stringify(resultToStore));
 
     // Navigate to the SelectedResult page with the clicked result's ID in the URL
     history.push(`/selectedresult/${result.id}`);

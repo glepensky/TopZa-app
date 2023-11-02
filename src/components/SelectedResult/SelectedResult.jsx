@@ -28,23 +28,19 @@ function SelectedResult() {
     return <div>Loading...</div>;
   }
 
+  const location = result.location ? (
+    <p>📍 Location: {result.location}</p>
+  ) : null;
+
   return (
     <div>
       <h2>Selected Pizza Details</h2>
       <div>
-        <img src={result.image} alt={result.name} />
-        <h3>{result.name}</h3>
-        <p>Location:</p>
-        {/* <ul>
-          {result.location.address1 && <li>{result.location.address1}</li>}
-          {result.location.address2 && <li>{result.location.address2}</li>}
-          {result.location.address3 && <li>{result.location.address3}</li>}
-          {result.location.city && <li>{result.location.city}</li>}
-          {result.location.zip_code && <li>{result.location.zip_code}</li>}
-          {result.location.country && <li>{result.location.country}</li>}
-          {result.location.state && <li>{result.location.state}</li>} */}
-        {/* </ul> */}
-        {/* Display other details as needed */}
+        {/* If there's an image, you can uncomment this line */}
+        {/* <img src={result.image} alt={result.name} /> */}
+        <h3>🍕 {result.name}</h3>
+        {/* Render location if it exists */}
+        {location}
       </div>
     </div>
   );
