@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 function SelectedResult() {
   const [result, setResult] = useState(null);
@@ -6,29 +6,19 @@ function SelectedResult() {
 
   useEffect(() => {
     try {
-      // Retrieve the data from local storage
-      const storedData = localStorage.getItem('selectedResult');
+      const storedData = localStorage.getItem("selectedResult");
       if (storedData) {
-        // Parse the data from JSON string to object
         const resultData = JSON.parse(storedData);
-  
-        // Set the result data to your state
         setResult(resultData);
-  
-        // Optionally, clear the data from local storage after retrieving it
-        localStorage.removeItem('selectedResult');
+        localStorage.removeItem("selectedResult");
       } else {
-        // Handle the case where there is no data in local storage
-        console.log('No data found in local storage.');
-        // Set a default state or handle this scenario as needed
+        console.log("No data found in local storage.");
       }
     } catch (err) {
-      // Handle errors if data retrieval or parsing fails
-      setError('Failed to load data');
-      console.error('Error parsing data from local storage:', err);
+      setError("Failed to load data");
+      console.error("Error parsing data from local storage:", err);
     }
   }, []);
-  
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -40,13 +30,24 @@ function SelectedResult() {
 
   return (
     <div>
-      <h1>{result.name}</h1>
-      {/* Rest of your component code */}
+      <h2>Selected Pizza Details</h2>
+      <div>
+        <img src={result.image} alt={result.name} />
+        <h3>{result.name}</h3>
+        <p>Location:</p>
+        {/* <ul>
+          {result.location.address1 && <li>{result.location.address1}</li>}
+          {result.location.address2 && <li>{result.location.address2}</li>}
+          {result.location.address3 && <li>{result.location.address3}</li>}
+          {result.location.city && <li>{result.location.city}</li>}
+          {result.location.zip_code && <li>{result.location.zip_code}</li>}
+          {result.location.country && <li>{result.location.country}</li>}
+          {result.location.state && <li>{result.location.state}</li>} */}
+        {/* </ul> */}
+        {/* Display other details as needed */}
+      </div>
     </div>
   );
 }
 
 export default SelectedResult;
-
-
-
