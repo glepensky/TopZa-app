@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 
 // Import userRouter
 const userRouter = require('./routes/user.router.js'); // Adjust the path as necessary
+const restaurantRouter = require('./routes/restaurant.router.js');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -48,6 +49,7 @@ app.get('/search', (req, res) => {
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/restaurants', restaurantRouter);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
