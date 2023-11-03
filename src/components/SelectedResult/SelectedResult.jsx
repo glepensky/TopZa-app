@@ -24,6 +24,12 @@ function SelectedResult() {
   }, []);
 
   const handleAddToPizzaList = () => {
+
+    if (!result) {
+        alert('No restaurant selected.');
+        return;
+      }
+
     // Make an HTTP POST request to your API endpoint
     axios.post('/api/restaurants', {
       name: result.name,
