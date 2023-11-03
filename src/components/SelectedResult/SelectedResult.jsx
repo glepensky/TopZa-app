@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+// Import axios to make HTTP requests
+import axios from 'axios';
 
 function SelectedResult() {
   const [result, setResult] = useState(null);
@@ -20,6 +22,19 @@ function SelectedResult() {
     }
   }, []);
 
+  // Event handler for adding to pizza list
+  const handleAddToPizzaList = () => {
+    // Implement logic to add the restaurant to the pizza list
+    // This might involve updating the state or local storage, or making an API call
+    // For example, if using local storage:
+    const pizzaList = JSON.parse(localStorage.getItem("pizzaList") || "[]");
+    const newPizzaList = [...pizzaList, result];
+    localStorage.setItem("pizzaList", JSON.stringify(newPizzaList));
+
+    // Optionally, confirm to the user that it was added
+    alert("Added to your Pizza List!");
+  };
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -38,6 +53,8 @@ function SelectedResult() {
       <div>
         <h3>🍕 {result.name}</h3>
         {location}
+        {/* Add restaurant button */}
+        <button onClick={handleAddToPizzaList}>Add to Pizza List</button>
       </div>
     </div>
   );
