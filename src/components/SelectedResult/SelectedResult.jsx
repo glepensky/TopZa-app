@@ -36,10 +36,7 @@ function SelectedResult() {
     <div>
       <h2>Selected Pizza Details</h2>
       <div>
-        {/* If there's an image, you can uncomment this line */}
-        {/* <img src={result.image} alt={result.name} /> */}
         <h3>🍕 {result.name}</h3>
-        {/* Render location if it exists */}
         {location}
       </div>
     </div>
