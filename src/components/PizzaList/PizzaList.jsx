@@ -24,6 +24,19 @@ function PizzaList() {
       });
   };
 
+  const deleteRestaurant = (restaurantId) => {
+    axios
+      .delete(`/api/restaurants/${restaurantId}`)
+      .then(() => {
+        // Remove the restaurant from the state to update the UI
+        setPizzaList(pizzaList.filter((restaurant) => restaurant.id !== restaurantId));
+      })
+      .catch((error) => {
+        console.error("There was an error deleting the restaurant:", error);
+        setError("Failed to delete restaurant.");
+      });
+  };
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -32,23 +45,20 @@ function PizzaList() {
     return <div>Loading pizzas...</div>;
   }
 
-  // Check if the pizza list is empty
   const isListEmpty = pizzaList.length === 0;
 
   return (
     <div>
       <h2>Your Pizza List</h2>
-      {/* Conditional rendering to check if the pizza list is empty */}
       {isListEmpty ? (
         <p>No pizza restaurants added yet. Please add some!</p>
       ) : (
         pizzaList.map((restaurant) => (
           <div key={restaurant.id}>
-            <h3>{restaurant.restaurant_name}</h3>{" "}
-            {/* Fixed property name to match the database */}
-            <p>Location: {restaurant.restaurant_location}</p>{" "}
-            {/* Fixed property name to match the database */}
-            {/* Additional restaurant details */}
+            <h3>{restaurant.restaurant_name}</h3>
+            <p>Location: {restaurant.restaurant_location}</p>
+            {/* Delete button for each restaurant */}
+            <button onClick={() => deleteRestaurant(restaurant.id)}>Delete</button>
           </div>
         ))
       )}
@@ -57,3 +67,4 @@ function PizzaList() {
 }
 
 export default PizzaList;
+
