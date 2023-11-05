@@ -25,17 +25,20 @@ function UserPage() {
     </Link>
       
     {/* View Pizza List route to Pizza List*/}
-    <Link to="/PizzaList">
+    {/* <Link to="/PizzaList">
       <button className="btn">Pizza List</button>
-    </Link>
+    </Link> */}
 
     {/* Hall of Fame */}
-    <Link to="/HallOfFameList">
+    {/* <Link to="/HallOfFameList">
       <button className="btn">Hall of Fame List</button>
-    </Link>
+    </Link> */}
 
-      <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
+      {/* <p>Your ID is: {user.id}</p>
+      <LogOutButton className="btn" /> */}
+
+      <PizzaList />
+
     </div>
   );
 }

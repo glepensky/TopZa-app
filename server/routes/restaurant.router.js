@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../pool');
+const pool = require('../modules/pool');
 
 // Function to get all restaurants from the database
 const getRestaurants = async () => {
@@ -13,7 +13,7 @@ const getRestaurants = async () => {
   }
 };
 
-// Function to add a new restaurant to the database, with dynamic user_id and restaurant_location
+// Function to add a new restaurant to the database
 const addRestaurant = async (restaurantData, userId) => {
   const queryText = 'INSERT INTO "restaurants"("user_id", "restaurant_name", "restaurant_location") VALUES($1, $2, $3) RETURNING *';
   const values = [userId, restaurantData.restaurant_name, restaurantData.restaurant_location];
@@ -46,7 +46,7 @@ router.get('/', isAuthenticated, async (req, res) => {
 
 // POST route for adding a new restaurant
 router.post('/', isAuthenticated, async (req, res) => {
-  const userId = req.user.id; // Or however you access the logged-in user's ID
+  const userId = req.user.id;
   try {
     const newRestaurant = await addRestaurant(req.body, userId);
     res.status(201).json(newRestaurant);
