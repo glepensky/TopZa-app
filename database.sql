@@ -15,7 +15,8 @@ CREATE TABLE "user" (
 CREATE TABLE "restaurants" (
     "id" SERIAL PRIMARY KEY,
     "user_id" INTEGER REFERENCES "user"("id"),
-    "restaurant_name" VARCHAR (80) NOT NULL
+    "restaurant_name" VARCHAR (80) NOT NULL,
+    "restaurant_location" VARCHAR(255)
 );
 
 -- Table for ratings

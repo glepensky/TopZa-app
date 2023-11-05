@@ -33,7 +33,8 @@ function SelectedResult() {
     // Make an HTTP POST request to your API endpoint
     axios.post('/api/restaurants', {
       name: result.name,
-      location: result.location // Assuming 'location' is a string with the address
+      location: result.location,
+      userId: result.userId 
     })
     .then(response => {
       // Handle success
