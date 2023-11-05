@@ -25,6 +25,18 @@ const addRestaurant = async (restaurantData, userId) => {
   }
 };
 
+// Function to delete a restaurant from the database
+const deleteRestaurant = async (restaurantId) => {
+  const queryText = 'DELETE FROM "restaurants" WHERE "id" = $1 RETURNING *';
+  const values = [restaurantId];
+  try {
+    const result = await pool.query(queryText, values);
+    return result.rowCount;
+  } catch (err) {
+    throw err;
+  }
+};
+
 // Middleware to check if the user is authenticated
 const isAuthenticated = (req, res, next) => {
   if (req.user) {
@@ -55,6 +67,27 @@ router.post('/', isAuthenticated, async (req, res) => {
     res.status(500).json({ error: 'Failed to add new restaurant' });
   }
 });
+
+
+
+
+
+// DELETE route for restaurant
+router.delete('/:id', isAuthenticated, async (req, res) => {
+  const restaurantId = req.params.id; // Get the ID from the URL parameter
+  try {
+    const deleteCount = await deleteRestaurant(restaurantId);
+    if (deleteCount === 1) {
+      res.status(200).json({ message: 'Restaurant deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Restaurant not found' });
+    }
+  } catch (error) {
+    console.error('Error deleting restaurant:', error);
+    res.status(500).json({ error: 'Failed to delete restaurant' });
+  }
+});
+
 
 // Export the router to be used in the main app file
 module.exports = router;
