@@ -6,6 +6,7 @@
 
   height: 60px; /* Adjust this value as needed */
   margin: 0 0 30px;
+  padding: 0px;
 
   /* Checkered background */
   background: linear-gradient(45deg, #e1a500 25%, transparent 25%),

@@ -40,10 +40,10 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <div id="header">
+      <div className="arch">
+      <div id="header">
           <Nav />
-        </div>
+      </div>
 
         <div id="main-content">
           <Switch>
@@ -133,7 +133,6 @@ function App() {
         <div id="footer">
           <Footer />
         </div>
-        
       </div>
     </Router>
   );

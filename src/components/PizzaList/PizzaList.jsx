@@ -29,7 +29,9 @@ function PizzaList() {
       .delete(`/api/restaurants/${restaurantId}`)
       .then(() => {
         // Remove the restaurant from the state to update the UI
-        setPizzaList(pizzaList.filter((restaurant) => restaurant.id !== restaurantId));
+        setPizzaList(
+          pizzaList.filter((restaurant) => restaurant.id !== restaurantId)
+        );
       })
       .catch((error) => {
         console.error("There was an error deleting the restaurant:", error);
@@ -58,7 +60,9 @@ function PizzaList() {
             <h3>{restaurant.restaurant_name}</h3>
             <p>Location: {restaurant.restaurant_location}</p>
             {/* Delete button for each restaurant */}
-            <button onClick={() => deleteRestaurant(restaurant.id)}>Delete</button>
+            <button onClick={() => deleteRestaurant(restaurant.id)}>
+              Delete
+            </button>
           </div>
         ))
       )}
@@ -67,4 +71,3 @@ function PizzaList() {
 }
 
 export default PizzaList;
-
