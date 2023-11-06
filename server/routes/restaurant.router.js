@@ -37,6 +37,33 @@ const deleteRestaurant = async (restaurantId) => {
   }
 };
 
+// Function to increment the times visited count of a restaurant in the database
+const incrementRestaurantVisit = async (restaurantId) => {
+  const queryText = 'UPDATE "restaurants" SET "times_visited" = "times_visited" + 1 WHERE "id" = $1 RETURNING *';
+  const values = [restaurantId];
+  try {
+    const result = await pool.query(queryText, values);
+    return result.rows[0];
+  } catch (err) {
+    throw err;
+  }
+};
+
+// Function to decrement the times visited count of a restaurant in the database
+const decrementRestaurantVisit = async (restaurantId) => {
+  const queryText = 'UPDATE "restaurants" SET "times_visited" = "times_visited" - 1 WHERE "id" = $1 AND "times_visited" > 0 RETURNING *';
+  const values = [restaurantId];
+  try {
+    const result = await pool.query(queryText, values);
+    if (result.rowCount === 0) {
+      throw new Error('Restaurant not found or times visited is already at 0');
+    }
+    return result.rows[0];
+  } catch (err) {
+    throw err;
+  }
+};
+
 // Middleware to check if the user is authenticated
 const isAuthenticated = (req, res, next) => {
   if (req.user) {
@@ -68,19 +95,43 @@ router.post('/', isAuthenticated, async (req, res) => {
   }
 });
 
-
-
-
-
-// DELETE route for restaurant
-router.delete('/:id', isAuthenticated, async (req, res) => {
-  const restaurantId = req.params.id; // Get the ID from the URL parameter
+// PUT route for incrementing the times visited count of a restaurant
+router.put('/:id/visit', isAuthenticated, async (req, res) => {
+  const restaurantId = req.params.id;
   try {
-    const deleteCount = await deleteRestaurant(restaurantId);
-    if (deleteCount === 1) {
-      res.status(200).json({ message: 'Restaurant deleted successfully' });
+    const updatedRestaurant = await incrementRestaurantVisit(restaurantId);
+    res.status(200).json(updatedRestaurant);
+  } catch (error) {
+    console.error('Error incrementing times visited:', error);
+    res.status(500).json({ error: 'Failed to increment times visited' });
+  }
+});
+
+// PUT route for decrementing the times visited count of a restaurant
+router.put('/:id/decrement-visit', isAuthenticated, async (req, res) => {
+  const restaurantId = req.params.id;
+  try {
+    const updatedRestaurant = await decrementRestaurantVisit(restaurantId);
+    res.status(200).json(updatedRestaurant);
+  } catch (error) {
+    if (error.message === 'Restaurant not found or times visited is already at 0') {
+      res.status(404).json({ error: error.message });
     } else {
+      console.error('Error decrementing times visited:', error);
+      res.status(500).json({ error: 'Failed to decrement times visited' });
+    }
+  }
+});
+
+// DELETE route for removing a restaurant
+router.delete('/:id', isAuthenticated, async (req, res) => {
+  const restaurantId = req.params.id;
+  try {
+    const deletedCount = await deleteRestaurant(restaurantId);
+    if (deletedCount === 0) {
       res.status(404).json({ error: 'Restaurant not found' });
+    } else {
+      res.status(200).json({ message: 'Restaurant deleted successfully' });
     }
   } catch (error) {
     console.error('Error deleting restaurant:', error);
@@ -88,11 +139,4 @@ router.delete('/:id', isAuthenticated, async (req, res) => {
   }
 });
 
-
-// Export the router to be used in the main app file
 module.exports = router;
-
-
-
-
-
