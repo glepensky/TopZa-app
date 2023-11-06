@@ -3,6 +3,7 @@ import axios from "axios";
 
 function PizzaList() {
   const [pizzaList, setPizzaList] = useState([]);
+  const [counters, setCounters] = useState({}); // New state for counters
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -15,6 +16,12 @@ function PizzaList() {
       .get("/api/restaurants")
       .then((response) => {
         setPizzaList(response.data);
+        // Initialize counters for each restaurant
+        const initialCounters = response.data.reduce((acc, restaurant) => {
+          acc[restaurant.id] = 0;
+          return acc;
+        }, {});
+        setCounters(initialCounters);
         setLoading(false);
       })
       .catch((error) => {
@@ -24,14 +31,30 @@ function PizzaList() {
       });
   };
 
+  const incrementCounter = (restaurantId) => {
+    setCounters((prevCounters) => ({
+      ...prevCounters,
+      [restaurantId]: prevCounters[restaurantId] + 1,
+    }));
+  };
+
+  const decrementCounter = (restaurantId) => {
+    setCounters((prevCounters) => ({
+      ...prevCounters,
+      [restaurantId]: Math.max(prevCounters[restaurantId] - 1, 0),
+    }));
+  };
+
   const deleteRestaurant = (restaurantId) => {
     axios
       .delete(`/api/restaurants/${restaurantId}`)
       .then(() => {
         // Remove the restaurant from the state to update the UI
-        setPizzaList(
-          pizzaList.filter((restaurant) => restaurant.id !== restaurantId)
-        );
+        setPizzaList(pizzaList.filter((restaurant) => restaurant.id !== restaurantId));
+        // Also remove the counter for the deleted restaurant
+        const updatedCounters = {...counters};
+        delete updatedCounters[restaurantId];
+        setCounters(updatedCounters);
       })
       .catch((error) => {
         console.error("There was an error deleting the restaurant:", error);
@@ -59,6 +82,10 @@ function PizzaList() {
           <div key={restaurant.id}>
             <h3>{restaurant.restaurant_name}</h3>
             <p>Location: {restaurant.restaurant_location}</p>
+            <p>Times Visited: {counters[restaurant.id]}</p> {/* Display the counter */}
+            {/* Buttons to increment and decrement the counter */}
+            <button onClick={() => incrementCounter(restaurant.id)}>+</button>
+            <button onClick={() => decrementCounter(restaurant.id)}>-</button>
             {/* Delete button for each restaurant */}
             <button onClick={() => deleteRestaurant(restaurant.id)}>
               Delete
@@ -71,3 +98,4 @@ function PizzaList() {
 }
 
 export default PizzaList;
+
