@@ -1,0 +1,21 @@
+/* App.css */
+html,
+body {
+  height: 100%;
+}
+
+#main-content {
+  flex: 1;
+  padding: 20px; /* Adjust padding as needed */
+  /* If you have a separate container for padding or margins, 
+     remove it from here to avoid double spacing. */
+}
+
+#footer {
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100%;
+}

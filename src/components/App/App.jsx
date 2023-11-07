@@ -23,7 +23,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import AddPizza from "../AddPizza/AddPizza";
 import SearchPizza from "../SearchPizza/SearchPizza";
 import PizzaList from "../PizzaList/PizzaList";
-import HallOfFameList from "../HallOfFameList/HallOfFameList";
+import Gallery from "../Gallery/Gallery";
 import SelectedResult from "../SelectedResult/SelectedResult";
 
 import "./App.css";
@@ -120,8 +120,8 @@ function App() {
             {/* Route from Pizza List button to Pizza List Page */}
             <Route exact path="/PizzaList" component={PizzaList} />
 
-            {/* Route from Hall of Fame button to Hall of Fame List Page */}
-            <Route exact path="/HallOfFameList" component={HallOfFameList} />
+            {/* Route from Gallery button to Gallery Page */}
+            <Route exact path="/Gallery" component={Gallery} />
 
             {/* If none of the other routes matched, we will show a 404. */}
             <Route>

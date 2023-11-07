@@ -3,10 +3,10 @@ import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import AddPizza from '../AddPizza/AddPizza';
 import ViewPizzaList from '../ViewPizzaList/ViewPizzaList';
-import HallOfFame from '../HallOfFame/HallOfFame';
+
 import SearchPizza from '../SearchPizza/SearchPizza';
 import PizzaList from '../PizzaList/PizzaList';
-import HallOfFameList from '../HallOfFameList/HallOfFameList';
+
 
 import { Link } from 'react-router-dom';
 
@@ -29,10 +29,7 @@ function UserPage() {
       <button className="btn">Pizza List</button>
     </Link> */}
 
-    {/* Hall of Fame */}
-    {/* <Link to="/HallOfFameList">
-      <button className="btn">Hall of Fame List</button>
-    </Link> */}
+ 
 
       {/* <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" /> */}
