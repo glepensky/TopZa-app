@@ -1,59 +1,55 @@
 .nav {
-  /* flex box layout */
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  height: 175px; /* Adjust this value as needed */
-  margin: 0 0 30px;
-  padding: 0px;
-
-  /* Checkered background */
-  background: linear-gradient(45deg, #e1a500 25%, transparent 25%),
-    linear-gradient(-45deg, #e1a500 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #e1a500 75%),
-    linear-gradient(-45deg, transparent 75%, #e1a500 75%);
+  justify-content: space-between;
+  position: relative;
+  height: 175px;
+  margin-bottom: 30px;
+  padding: 0;
+  background: linear-gradient(45deg, #e7c020 25%, transparent 25%),
+    linear-gradient(-45deg, #e7c020 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e7c020 75%),
+    linear-gradient(-45deg, transparent 75%, #e7c020 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-
-  overflow: hidden;
 }
 
-.nav a {
-  text-decoration: none;
+.nav-logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.nav-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #f2f2f2;
-  padding-left: 10px;
-  margin: 0;
+.nav-logo {
+  width: 355px; /* Adjust as necessary */
+  height: 330px;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  gap: 0; /* Remove gap between links */
+  margin-left: auto; /* Push the links to the right */
 }
 
 .navLink {
-  display: inline-block;
-  color: #f2f2f2;
-  background-color: #e01616;
+  color: #f8f8f8;
+  background-color: #b04628;
+  border-color: #4da167;
   text-align: center;
-  padding: 24px 10px;
+  padding: 30px 82px; /* Increase padding to make links bigger */
   text-decoration: none;
-  font-size: 15px;
-
-  /* these last two make the logout button in
-  the nav bar look like another link */
+  font-size: 18px; /* Increase font size for bigger links */
   border: none;
   cursor: pointer;
   outline: 0;
+  border-width: 1px 1px 3px;
+  border-radius: 10px;
+  cursor: pointer;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
 }
 
 .navLink:hover {
   background-color: #4da167;
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
 }

@@ -34,11 +34,12 @@ Button
   border-color: #4da167;
   border-width: 1px 1px 3px;
   border-radius: 10px;
-  background-color: #d93523;
+  background-color: #b04628;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  text-align: center;
 }
 
 .btn_sizeMin {
@@ -86,10 +87,10 @@ Alert
   box-sizing: border-box;
   padding: 15px 10px;
   margin: 15px 0;
-  border: 2px solid #e01616;
+  border: 2px solid #b04628;
   background-color: #efefef;
   border-radius: 3px;
-  color: #e01616;
+  color: #b04628;
   font-size: 0.8rem;
 }
 
@@ -103,7 +104,7 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #e1a500;
+  background-color: #e7c020;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
