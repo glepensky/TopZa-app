@@ -27,8 +27,6 @@ function AboutPage() {
           <br></br>
           Yelp Fusion API
           <br></br>
-          Material UI
-          <br></br>
           <br></br>
           <br></br>
           Acknowledgements 🙏

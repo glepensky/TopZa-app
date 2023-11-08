@@ -1,51 +1,54 @@
 .about-container {
   display: flex;
-  justify-content: flex-start; /* Aligns content to the left */
-  align-items: flex-start; /* Aligns content to the top */
-  text-align: right; /* Aligns text to the left */
-  height: 100%; /* Full height of the viewport (you can adjust this as needed) */
-  padding: 20px; /* Adds padding inside the container */
-  padding-left: 40px;
+  justify-content: flex-end; /* Aligns items to the right */
+  align-items: flex-start;
+  text-align: right;
+  height: 100%;
+  padding: 50px;
+  padding-right: 40px; /* Increase this value to move content further right */
+  /* or you can add margin-left here */
+  margin-right: 40px; /* Adjust this value as needed */
 }
 
 .about-container .some-other-class {
-  text-align: left; /* This will override the right alignment for elements with this class */
+  text-align: right; 
+} 
+
+.about-content {
+  max-width: 1000px; 
 }
 
 .more-container {
   display: flex;
-  justify-content: flex-start; /* Aligns content to the left */
-  align-items: flex-start; /* Aligns content to the top */
-  text-align: left; /* Aligns text to the left */
-  height: 100%; /* Full height of the viewport (you can adjust this as needed) */
-  padding: 20px; /* Adds padding inside the container */
-  padding-left: 40px;
+  justify-content: flex-start; 
+  align-items: flex-start; 
+  text-align: left; 
+  height: 100%; 
+  padding: 20px; 
+  padding-left: 60px;
 }
 
 .more-content {
-  /* If you want to limit the width of the text and image together */
-  max-width: 600px; /* Adjust this value as needed */
-  /* This ensures the content block itself is aligned to the left */
+  max-width: 1000px; 
 }
 
 .more-text {
-  /* Style for your text if needed */
-  margin-bottom: 20px; /* Adds a margin below the text */
+  margin-bottom: 20px; 
 }
 
 .more-image {
-  display: block; /* Ensures the image is a block-level element */
-  width: auto; /* Keeps the image's original width */
-  height: auto; /* Maintains aspect ratio */
-  max-width: 100%; /* Ensures the image is responsive and fits its container */
+  display: flex; 
+  width: auto; 
+  height: auto; 
+  max-width: 100%; 
 }
 
 
 .divider {
-    height: 2px; /* Sets the thickness of the divider */
-    background: #e7c020; /* Sets the color of the divider */
-    margin: 20px auto; /* Centers the divider and adds vertical space */
-    width: calc(100% - 2in); /* Sets the width to be the full width of the container minus 2 inches */
+    height: 2px; 
+    background: #e7c020; 
+    margin: 20px auto; 
+    width: calc(100% - 2in); 
   }
   
   

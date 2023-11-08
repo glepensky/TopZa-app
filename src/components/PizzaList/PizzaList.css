@@ -1,7 +1,7 @@
 /* PizzaList.css */
 .highlight-zero-visit {
-    border: 2px solid red; /* Example: red border */
-    background-color: #ffcccc; /* Example: light red background */
+    border: 2px solid #C0D6DF; /* Example: red border */
+    background-color: #C0D6DF; /* Example: light red background */
     padding: 10px;
     margin-bottom: 10px;
   }
