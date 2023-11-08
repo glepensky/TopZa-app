@@ -23,11 +23,11 @@ function SearchPizza() {
   };
 
   const handleResultClick = (result) => {
-    // Ensure the location is an object with address1 property
-    // Adjust according to your API response structure
+    // Store the full address in the result object
+    const fullAddress = `${result.location.address1}, ${result.location.city}, ${result.location.state} ${result.location.zip_code}`;
     const resultToStore = {
       ...result,
-      location: result.location.address1 || "No address provided", // Add a default value if address isn't available
+      location: fullAddress,
     };
 
     // Save the clicked result data to local storage
@@ -57,16 +57,16 @@ function SearchPizza() {
               display: "flex",
               alignItems: "center",
               marginBottom: "10px",
-              cursor: "pointer", // To indicate it's clickable
+              cursor: "pointer",
             }}
-            onClick={() => handleResultClick(place)} // Click event handler
+            onClick={() => handleResultClick(place)}
           >
             <img
               src={place.image_url}
               alt={place.name}
               style={{ width: "100px", marginRight: "10px" }}
             />
-            {place.name} - {place.location.address1}
+            {place.name} - {`${place.location.address1}, ${place.location.city}, ${place.location.state} ${place.location.zip_code}`}
           </div>
         ))}
       </div>
@@ -75,3 +75,4 @@ function SearchPizza() {
 }
 
 export default SearchPizza;
+

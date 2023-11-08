@@ -21,15 +21,15 @@
 }
 
 .nav-logo {
-  width: 355px; /* Adjust as necessary */
+  width: 355px;
   height: 330px;
 }
 
 .nav-links-container {
   display: flex;
   align-items: center;
-  gap: 0; /* Remove gap between links */
-  margin-left: auto; /* Push the links to the right */
+  gap: 0;
+  margin-left: auto;
 }
 
 .navLink {
@@ -37,9 +37,9 @@
   background-color: #b04628;
   border-color: #4da167;
   text-align: center;
-  padding: 30px 49px; /* Increase padding to make links bigger */
+  padding: 30px 52px;
   text-decoration: none;
-  font-size: 18px; /* Increase font size for bigger links */
+  font-size: 18px;
   border: none;
   cursor: pointer;
   outline: 0;
