@@ -73,7 +73,10 @@ class PizzaList extends Component {
   render() {
     return (
       <div>
+        <br></br>
+        <br></br>
         <h2>Restaurant List</h2>
+        <br></br>
         {this.renderRestaurantList()}
         {this.state.errorMessage && (
           <div className="error">{this.state.errorMessage}</div>

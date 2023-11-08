@@ -1,0 +1,30 @@
+
+.about-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    align-items: flex-start; /* Aligns content to the top */
+    text-align: left; /* Aligns text to the left */
+    height: 100%; /* Full height of the viewport (you can adjust this as needed) */
+    padding: 20px; /* Adds padding inside the container */
+  }
+  
+  .about-content {
+    /* If you want to limit the width of the text and image together */
+    max-width: 600px; /* Adjust this value as needed */
+    /* This ensures the content block itself is aligned to the left */
+  }
+  
+  .about-text {
+    /* Style for your text if needed */
+    margin-bottom: 20px; /* Adds a margin below the text */
+  }
+  
+  .about-image {
+    display: block; /* Ensures the image is a block-level element */
+    width: auto; /* Keeps the image's original width */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 100%; /* Ensures the image is responsive and fits its container */
+  }
+  
+  
+  
