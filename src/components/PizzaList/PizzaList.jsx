@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './PizzaList.css';
 
 class PizzaList extends Component {
   state = {
@@ -80,35 +81,33 @@ class PizzaList extends Component {
         this.setState({ errorMessage: "Failed to delete the restaurant." });
       });
   };
-
+  
   renderRestaurantList = () => {
-    // Check if the restaurants array is empty
     if (this.state.restaurants.length === 0) {
-      // Render a message prompting the user to add a restaurant
       return <p>You have no restaurants listed. Add one!</p>;
     } else {
-      // Map over the restaurants and render them as before
-      return this.state.restaurants.map((restaurant) => (
-        <div key={restaurant.id}>
-          <h3>🍕 {restaurant.restaurant_name}</h3>
-          <p>📍 {restaurant.restaurant_location}</p>
-          <p>Visit Count: {restaurant.times_visited}</p>
-          <button onClick={() => this.incrementCounter(restaurant.id)}>
-            +
-          </button>
-          <button
-            onClick={() => this.decrementCounter(restaurant.id)}
-            disabled={restaurant.times_visited === 0}>
-            -
-          </button>
-          <button onClick={() => this.deleteRestaurant(restaurant.id)}>
-            Delete
-          </button>
-          <br></br>
-          <br></br>
-          <br></br>
-        </div>
-      ));
+      return this.state.restaurants.map((restaurant) => {
+        // Determine the class to apply based on visit count
+        const itemClass = restaurant.times_visited === 0 ? 'highlight-zero-visit' : 'restaurant-item';
+  
+        return (
+          <div key={restaurant.id} className={itemClass}>
+            <h3>🍕 {restaurant.restaurant_name}</h3>
+            <p>📍 {restaurant.restaurant_location}</p>
+            <p>Visit Count: {restaurant.times_visited}</p>
+            <button onClick={() => this.incrementCounter(restaurant.id)}>+</button>
+            <button
+              onClick={() => this.decrementCounter(restaurant.id)}
+              disabled={restaurant.times_visited === 0}
+            >
+              -
+            </button>
+            <button onClick={() => this.deleteRestaurant(restaurant.id)}>
+              Delete
+            </button>
+          </div>
+        );
+      });
     }
   };
 
