@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import './SearchPizza.css'; 
 
 function SearchPizza() {
   const [location, setLocation] = useState("");
@@ -38,7 +39,7 @@ function SearchPizza() {
   };
 
   return (
-    <div>
+    <div className="search-container">
       <h1>Search for Pizza</h1>
 
       <input
@@ -49,7 +50,7 @@ function SearchPizza() {
       />
       <button onClick={handleSearch}>Search</button>
 
-      <div>
+      <div className="search-results">
         {results.map((place) => (
           <div
             key={place.id}

@@ -1,0 +1,21 @@
+/* searchpizza.css */
+
+.search-container {
+    padding: 0 20px; /* This adds padding to the left and right */
+  }
+  
+  .search-results div {
+    /* Add styles for individual result items */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc; /* Optional: adds a line between items */
+    padding: 10px 0; /* Optional: adds padding above and below each item */
+  }
+  
+  .search-results img {
+    width: 100px;
+    margin-right: 10px;
+  }
+  
