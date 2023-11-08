@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
 
-  height: 60px; /* Adjust this value as needed */
+  height: 175px; /* Adjust this value as needed */
   margin: 0 0 30px;
   padding: 0px;
 
@@ -49,4 +49,11 @@
 
 .navLink:hover {
   background-color: #4da167;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }

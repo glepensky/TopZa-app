@@ -1,4 +1,5 @@
 import React from "react";
+import topazlogo from "./topzalogo.png"
 import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
@@ -39,6 +40,7 @@ function Nav() {
             <LogOutButton className="navLink" />
           </>
         )}
+        <img src={ topazlogo } alt="topaz logo" class="center"/>
       </div>
     </div>
   );

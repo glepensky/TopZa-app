@@ -57,9 +57,9 @@ class PizzaList extends Component {
   renderRestaurantList = () => {
     return this.state.restaurants.map(restaurant => (
       <div key={restaurant.id}>
-        <h3>{restaurant.restaurant_name}</h3>
-        <p>Location: {restaurant.restaurant_location}</p>
-        <p>Times Visited: {restaurant.times_visited}</p>
+        <h3>🍕 {restaurant.restaurant_name}</h3>
+        <p>📍 {restaurant.restaurant_location}</p>
+        <p>Visit Count: {restaurant.times_visited}</p>
         <button onClick={() => this.incrementCounter(restaurant.id)}>
           +
         </button>
