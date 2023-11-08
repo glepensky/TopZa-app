@@ -51,6 +51,7 @@ app.get('/search', (req, res) => {
 app.use('/api/user', userRouter);
 app.use('/api/restaurants', restaurantRouter);
 
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 

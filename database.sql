@@ -27,3 +27,11 @@ CREATE TABLE "ratings" (
     "restaurant_id" INTEGER REFERENCES "restaurants"("id"),
     "restaurant_rating" DECIMAL(3,1) NOT NULL
 );
+
+-- Table for gallery
+CREATE TABLE "images" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR(25) NOT NULL,
+    "origin" VARCHAR(50) NOT NULL,
+    "immortal" BOOLEAN DEFAULT false
+);

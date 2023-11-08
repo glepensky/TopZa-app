@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 175px;
+  height: 275px;
   margin-bottom: 30px;
   padding: 0;
   background: linear-gradient(45deg, #e7c020 25%, transparent 25%),
@@ -21,8 +21,8 @@
 }
 
 .nav-logo {
-  width: 355px;
-  height: 330px;
+  width: 500px;
+  height: 500px;
 }
 
 .nav-links-container {
