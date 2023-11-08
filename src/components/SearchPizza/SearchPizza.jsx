@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import './SearchPizza.css'; 
+import "./SearchPizza.css";
 
 function SearchPizza() {
   const [location, setLocation] = useState("");
@@ -60,14 +60,14 @@ function SearchPizza() {
               marginBottom: "10px",
               cursor: "pointer",
             }}
-            onClick={() => handleResultClick(place)}
-          >
+            onClick={() => handleResultClick(place)}>
             <img
               src={place.image_url}
               alt={place.name}
               style={{ width: "100px", marginRight: "10px" }}
             />
-            {place.name} - {`${place.location.address1}, ${place.location.city}, ${place.location.state} ${place.location.zip_code}`}
+            {place.name} -{" "}
+            {`${place.location.address1}, ${place.location.city}, ${place.location.state} ${place.location.zip_code}`}
           </div>
         ))}
       </div>
@@ -76,4 +76,3 @@ function SearchPizza() {
 }
 
 export default SearchPizza;
-

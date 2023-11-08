@@ -104,6 +104,9 @@ class PizzaList extends Component {
           <button onClick={() => this.deleteRestaurant(restaurant.id)}>
             Delete
           </button>
+          <br></br>
+          <br></br>
+          <br></br>
         </div>
       ));
     }
